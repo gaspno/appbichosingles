@@ -1,0 +1,129 @@
+package com.shambles.ntworkenterprice.ingles.Fragments;
+
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.shambles.ntworkenterprice.ingles.R;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class BichosFragment extends Fragment {
+
+    public BichosFragment() {
+        // Required empty public constructor
+    }
+
+    private Button button6;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+    private Button button5;
+    private MediaPlayer mediaPlayer;
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_bichos, container, false);
+
+
+        button1 = view.findViewById(R.id.button);
+        button2 = view.findViewById(R.id.button2);
+        button3 = view.findViewById(R.id.button3);
+        button4 = view.findViewById(R.id.button4);
+        button5 = view.findViewById(R.id.button5);
+        button6 = view.findViewById(R.id.button6);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.cat);
+                player();
+
+            }
+        });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.cat);
+                player();
+
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.sheep);
+                player();
+
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.cow);
+                player();
+
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.lion);
+                player();
+
+            }
+        });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.dog);
+                player();
+
+            }
+        });
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mediaPlayer = MediaPlayer.create(getContext(), R.raw.monkey);
+                player();
+
+            }
+        });
+
+        return view;
+    }
+
+    public void player() {
+        mediaPlayer.start();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+}
